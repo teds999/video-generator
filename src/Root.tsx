@@ -10,6 +10,16 @@ import { SORTED_YOUTUBERS } from "./data/youtubers";
 import { SORTED_MOBILE_GAMES } from "./data/mobileGames";
 import { SORTED_BUILDINGS } from "./data/buildings";
 import { SORTED_MOVIES } from "./data/movies";
+import { TopAppsComposition, TopAppsProps } from "./AppsComposition";
+import { SORTED_APPS } from "./data/apps";
+import { TopRichestComposition, TopRichestProps } from "./RichestPeopleComposition";
+import { SORTED_RICHEST } from "./data/richestPeople";
+import { TopWCScorersComposition, TopWCScorersProps } from "./WCScorersComposition";
+import { SORTED_WC_SCORERS } from "./data/wcScorers";
+import { TopWCPaidComposition, TopWCPaidProps } from "./WCPaidPlayersComposition";
+import { SORTED_WC_PAID } from "./data/wcPaidPlayers";
+import { TopWCFinalsComposition, TopWCFinalsProps } from "./WCFinalsComposition";
+import { SORTED_WC_FINALS } from "./data/wcFinals";
 
 const sharedCameraProps = {
   spacing: 5.05,
@@ -32,6 +42,17 @@ const youtubersDefaultProps: TopYoutubersProps = sharedCameraProps;
 const mobileGamesDefaultProps: TopMobileGamesProps = sharedCameraProps;
 const buildingsDefaultProps: TopBuildingsProps = sharedCameraProps;
 const moviesDefaultProps: TopMoviesProps = sharedCameraProps;
+const appsDefaultProps: TopAppsProps = sharedCameraProps;
+const richestDefaultProps: TopRichestProps = sharedCameraProps;
+
+const appsDuration = Math.max(1, SORTED_APPS.length - 1) * framesPerRank + finaleFrames;
+const richestDuration = Math.max(1, SORTED_RICHEST.length - 1) * framesPerRank + finaleFrames;
+const wcScorersDuration = Math.max(1, SORTED_WC_SCORERS.length - 1) * framesPerRank + finaleFrames;
+const wcScorersDefaultProps: TopWCScorersProps = sharedCameraProps;
+const wcPaidDuration = Math.max(1, SORTED_WC_PAID.length - 1) * framesPerRank + finaleFrames;
+const wcPaidDefaultProps: TopWCPaidProps = sharedCameraProps;
+const wcFinalsDuration = Math.max(1, SORTED_WC_FINALS.length - 1) * framesPerRank + finaleFrames;
+const wcFinalsDefaultProps: TopWCFinalsProps = sharedCameraProps;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -80,6 +101,51 @@ export const RemotionRoot: React.FC = () => {
         width={1920}
         height={1080}
         defaultProps={moviesDefaultProps}
+      />
+      <Composition
+        id="TopApps"
+        component={TopAppsComposition}
+        durationInFrames={appsDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={appsDefaultProps}
+      />
+      <Composition
+        id="TopRichest"
+        component={TopRichestComposition}
+        durationInFrames={richestDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={richestDefaultProps}
+      />
+      <Composition
+        id="TopWCScorers"
+        component={TopWCScorersComposition}
+        durationInFrames={wcScorersDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={wcScorersDefaultProps}
+      />
+      <Composition
+        id="TopWCPaid"
+        component={TopWCPaidComposition}
+        durationInFrames={wcPaidDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={wcPaidDefaultProps}
+      />
+      <Composition
+        id="TopWCFinals"
+        component={TopWCFinalsComposition}
+        durationInFrames={wcFinalsDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={wcFinalsDefaultProps}
       />
     </>
   );
