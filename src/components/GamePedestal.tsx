@@ -985,6 +985,12 @@ export const GamePedestal: React.FC<Props> = ({
     ? `${rawVal} goals`
     : salesUnit === "Mviews"
     ? `${rawVal}M`
+    : salesUnit === "$T"
+    ? rawVal < 1000
+      ? `$${rawVal}B`
+      : `$${(rawVal / 1000).toFixed(rawVal % 1000 === 0 ? 0 : 1)}T`
+    : salesUnit === "$K"
+    ? `$${rawVal}K`
     : salesUnit === "m"
     ? `${rawVal}m`
     : salesUnit === "$M"

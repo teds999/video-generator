@@ -20,6 +20,20 @@ import { TopWCPaidComposition, TopWCPaidProps } from "./WCPaidPlayersComposition
 import { SORTED_WC_PAID } from "./data/wcPaidPlayers";
 import { TopWCFinalsComposition, TopWCFinalsProps } from "./WCFinalsComposition";
 import { SORTED_WC_FINALS } from "./data/wcFinals";
+import { TopUSStatesComposition, TopUSStatesProps } from "./USStatesComposition";
+import { SORTED_US_STATES } from "./data/usStates";
+import { TopNFLTeamsComposition, TopNFLTeamsProps } from "./NFLTeamsComposition";
+import { SORTED_NFL_TEAMS } from "./data/nflTeams";
+import { TopAICompaniesComposition, TopAICompaniesProps } from "./AICompaniesComposition";
+import { SORTED_AI_COMPANIES } from "./data/aiCompanies";
+import { TopAIToolsComposition, TopAIToolsProps } from "./AIToolsComposition";
+import { SORTED_AI_TOOLS } from "./data/aiTools";
+import { TopAIJobsComposition, TopAIJobsProps } from "./AIJobsComposition";
+import { SORTED_AI_JOBS } from "./data/aiJobs";
+import { TopAIRevenueComposition, TopAIRevenueProps } from "./AIRevenueComposition";
+import { SORTED_AI_REVENUE } from "./data/aiRevenue";
+import { TopAIAppsComposition, TopAIAppsProps } from "./AIAppsComposition";
+import { SORTED_AI_APPS } from "./data/aiApps";
 
 const sharedCameraProps = {
   spacing: 5.05,
@@ -53,6 +67,16 @@ const wcPaidDuration = Math.max(1, SORTED_WC_PAID.length - 1) * framesPerRank + 
 const wcPaidDefaultProps: TopWCPaidProps = sharedCameraProps;
 const wcFinalsDuration = Math.max(1, SORTED_WC_FINALS.length - 1) * framesPerRank + finaleFrames;
 const wcFinalsDefaultProps: TopWCFinalsProps = sharedCameraProps;
+const usStatesDuration = Math.max(1, SORTED_US_STATES.length - 1) * framesPerRank + finaleFrames;
+const usStatesDefaultProps: TopUSStatesProps = sharedCameraProps;
+const nflTeamsDuration = Math.max(1, SORTED_NFL_TEAMS.length - 1) * framesPerRank + finaleFrames;
+const nflTeamsDefaultProps: TopNFLTeamsProps = sharedCameraProps;
+const aiCompaniesDuration = Math.max(1, SORTED_AI_COMPANIES.length - 1) * framesPerRank + finaleFrames;
+const aiCompaniesDefaultProps: TopAICompaniesProps = sharedCameraProps;
+const aiToolsDuration = Math.max(1, SORTED_AI_TOOLS.length - 1) * framesPerRank + finaleFrames;
+const aiJobsDuration = Math.max(1, SORTED_AI_JOBS.length - 1) * framesPerRank + finaleFrames;
+const aiRevenueDuration = Math.max(1, SORTED_AI_REVENUE.length - 1) * framesPerRank + finaleFrames;
+const aiAppsDuration = Math.max(1, SORTED_AI_APPS.length - 1) * framesPerRank + finaleFrames;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -147,6 +171,37 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={wcFinalsDefaultProps}
       />
+      <Composition
+        id="TopUSStates"
+        component={TopUSStatesComposition}
+        durationInFrames={usStatesDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={usStatesDefaultProps}
+      />
+      <Composition
+        id="TopRichestPoliticians"
+        component={TopNFLTeamsComposition}
+        durationInFrames={nflTeamsDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={nflTeamsDefaultProps}
+      />
+      <Composition
+        id="TopAICompanies"
+        component={TopAICompaniesComposition}
+        durationInFrames={aiCompaniesDuration}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={aiCompaniesDefaultProps}
+      />
+      <Composition id="TopAITools" component={TopAIToolsComposition} durationInFrames={aiToolsDuration} fps={60} width={1920} height={1080} defaultProps={sharedCameraProps as TopAIToolsProps} />
+      <Composition id="TopAIJobs" component={TopAIJobsComposition} durationInFrames={aiJobsDuration} fps={60} width={1920} height={1080} defaultProps={sharedCameraProps as TopAIJobsProps} />
+      <Composition id="TopAIRevenue" component={TopAIRevenueComposition} durationInFrames={aiRevenueDuration} fps={60} width={1920} height={1080} defaultProps={sharedCameraProps as TopAIRevenueProps} />
+      <Composition id="TopAIApps" component={TopAIAppsComposition} durationInFrames={aiAppsDuration} fps={60} width={1920} height={1080} defaultProps={sharedCameraProps as TopAIAppsProps} />
     </>
   );
 };
